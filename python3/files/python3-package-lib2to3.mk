@@ -11,6 +11,11 @@ $(call Package/python3/Default)
   DEPENDS:=+python3
 endef
 
+define Py3Package/python3-lib2to3/install
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(CP) $(PKG_BUILD_DIR)/Tools/scripts/2to3 $(1)/usr/bin/
+endef
+
 $(eval $(call Py3BasePackage,python3-lib2to3, \
 	/usr/lib/python$(PYTHON3_VERSION)/lib2to3 \
 ))
